@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>RecipeApp: Your Recipes</title>
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="{% static 'recipes\css\styles.css' %}">
+  <style type="text/css">
+    body {
+      background: url("{% static 'recipes/images/main-background.jpg' %}") no-repeat fixed;
+      background-size: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav_bar">
+    <a class="login_btn" href="{%url 'logout' %}">Logout</a>
+    <a class="login_btn" href="{%url 'recipes:about' %}">About</a>
+    <a class="login_btn" href="{%url 'recipes:search' %}">Search</a>
+    <a class="login_btn" href="{%url 'recipes:create' %}">Create</a>
+    <a class="login_btn" href="{%url 'recipes:list' %}">Recipes</a>
+  </div>
+  <div class="create_block">
+
+    <h1 class="h1_search_results">Let's add your recipe</h1>
+    <form action="" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{create_form.as_p}}
+      <button type="submit" class="login_btn">Get cooking</button>
+    </form>
+    <div class="details_long">
+      <a href="{% url 'recipes:list' %}" class="login_btn">Back</a>
+      <!-- <button onclick="goBack()" class="login_btn">Back</button> -->
+    </div>
+
+  </div>
+
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+</body>
+
+</html>
