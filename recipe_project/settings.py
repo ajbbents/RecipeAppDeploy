@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['desolate-castle-23053.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
